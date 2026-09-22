@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CONSOLE DEFENDER</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div id="desktop">
+
+    <!-- 바탕화면 -->
+    <div class="desktop-icons">
+        <div class="desktop-icon">
+            <div class="icon">🖥️</div>
+            <span>내 컴퓨터</span>
+        </div>
+
+        <div class="desktop-icon">
+            <div class="icon">🗑️</div>
+            <span>휴지통</span>
+        </div>
+    </div>
+
+    <!-- 바이러스 경고 -->
+    <div id="virusWarning">
+        ⚠ VIRUS DETECTED
+    </div>
+
+    <!-- 게임 -->
+    <main id="game">
+
+        <!-- 상단 HUD -->
+        <header id="hud">
+
+            <div class="brand">
+                <strong>CONSOLE DEFENDER</strong>
+                <span id="wave">WAVE 1</span>
+            </div>
+
+            <div class="stats">
+
+                <div>
+                    CPU
+                    <div class="health">
+                        <div id="healthBar"></div>
+                    </div>
+                    <span id="healthText">100</span>
+                </div>
+
+                <div>
+                    SCORE
+                    <strong id="score">0</strong>
+                </div>
+
+                <div>
+                    KILLS
+                    <strong id="kills">0</strong>
+                </div>
+
+            </div>
+
+        </header>
+
+        <!-- 전투 공간 -->
+        <section id="arena">
+
+            <div id="computer">
+
+                <div class="monitor">
+
+                    <div class="monitor-screen">
+                        <div>MY COMPUTER</div>
+                        <small>STATUS: ONLINE</small>
+                    </div>
+
+                </div>
+
+                <div class="monitor-stand"></div>
+                <div class="monitor-base"></div>
+
+                <div class="computer-name">
+                    내 컴퓨터
+                </div>
+
+            </div>
+
+            <div id="enemies"></div>
+            <div id="effects"></div>
+
+        </section>
+
+        <!-- 콘솔 -->
+        <section id="console">
+
+            <div class="console-header">
+
+                <div class="lights">
+                    <i></i>
+                    <i></i>
+                    <i></i>
+                </div>
+
+                <span>COMMAND PROMPT</span>
+
+                <button id="clearLog">×</button>
+
+            </div>
+
+            <div id="terminalOutput">
+
+                <div class="system">
+                    CONSOLE DEFENDER v2.0
+                </div>
+
+                <div>
+                    바이러스 침입이 감지되었습니다.
+                </div>
+
+                <div>
+                    <b>help</b>를 입력하여 사용 가능한 명령어를 확인하십시오.
+                </div>
+
+            </div>
+
+            <form id="commandForm">
+
+                <span>C:\&gt;</span>
+
+                <input
+                    id="commandInput"
+                    autocomplete="off"
+                    spellcheck="false"
+                    autofocus
+                >
+
+            </form>
+
+        </section>
+
+    </main>
+
+    <!-- 시작 화면 -->
+    <div id="startScreen" class="overlay">
+
+        <div class="menu">
+
+            <div class="glitch">
+                CONSOLE
+            </div>
+
+            <h1>DEFENDER</h1>
+
+            <p>
+                Your computer is under attack.
+            </p>
+
+            <p class="description">
+                콘솔 명령어를 무기로 사용하여<br>
+                바이러스가 컴퓨터를 감염시키는 것을 막으세요.
+            </p>
+
+            <div class="basic-command">
+                기본 공격
+                <strong>delete</strong>
+            </div>
+
+            <button id="startButton">
+                START SYSTEM
+            </button>
+
+        </div>
+
+    </div>
+
+    <!-- 업그레이드 -->
+    <div id="upgradeScreen" class="overlay hidden">
+
+        <div class="upgrade">
+
+            <div class="small-title">
+                WAVE CLEARED
+            </div>
+
+            <h2>SELECT UPGRADE</h2>
+
+            <p id="upgradeInfo">
+                시스템을 업그레이드하십시오.
+            </p>
+
+            <div id="upgradeCards"></div>
+
+        </div>
+
+    </div>
+
+    <!-- 게임 오버 -->
+    <div id="gameOverScreen" class="overlay hidden">
+
+        <div class="menu">
+
+            <div class="small-title">
+                SYSTEM FAILURE
+            </div>
+
+            <h1>INFECTED</h1>
+
+            <p>
+                COMPUTER HAS BEEN COMPROMISED
+            </p>
+
+            <div class="final-score">
+                SCORE:
+                <strong id="finalScore">0</strong>
+            </div>
+
+            <button id="restartButton">
+                REBOOT SYSTEM
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+<script src="game.js"></script>
+
+</body>
+</html>
