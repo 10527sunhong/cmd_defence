@@ -1,0 +1,816 @@
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+body {
+    background: #020603;
+    color: #d8ffe1;
+    font-family:
+        Consolas,
+        "Courier New",
+        monospace;
+    cursor: crosshair;
+}
+
+button,
+input {
+    font-family: inherit;
+}
+
+/* =========================
+   DESKTOP
+========================= */
+
+#desktop {
+    position: relative;
+    width: 100%;
+    height: 100%;
+
+    background:
+        radial-gradient(
+            circle at 65% 35%,
+            #163a23,
+            #07150c 45%,
+            #020603 100%
+        );
+
+    overflow: hidden;
+}
+
+#desktop::after {
+    content: "";
+
+    position: absolute;
+    inset: 0;
+
+    background:
+        repeating-linear-gradient(
+            0deg,
+            transparent,
+            transparent 3px,
+            rgba(70,255,120,.025) 4px
+        );
+
+    pointer-events: none;
+}
+
+/* =========================
+   DESKTOP ICONS
+========================= */
+
+.desktop-icons {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    z-index: 2;
+}
+
+.desktop-icon {
+    width: 75px;
+    text-align: center;
+
+    font-size: 11px;
+
+    color: white;
+
+    text-shadow:
+        0 1px 3px black;
+}
+
+.icon {
+    font-size: 35px;
+    margin-bottom: 5px;
+}
+
+/* =========================
+   WARNING
+========================= */
+
+#virusWarning {
+    position: absolute;
+
+    top: 20px;
+    right: 20px;
+
+    padding: 10px 16px;
+
+    border: 1px solid #ff4657;
+
+    background: #24070b;
+
+    color: #ff6574;
+
+    font-size: 12px;
+
+    box-shadow:
+        0 0 20px rgba(255,0,40,.2);
+
+    animation: warningBlink .7s infinite alternate;
+
+    z-index: 20;
+}
+
+@keyframes warningBlink {
+
+    from {
+        opacity: .5;
+    }
+
+    to {
+        opacity: 1;
+    }
+
+}
+
+/* =========================
+   GAME
+========================= */
+
+#game {
+    position: absolute;
+
+    inset: 0;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    z-index: 5;
+}
+
+/* =========================
+   HUD
+========================= */
+
+#hud {
+    width: min(1100px, 94vw);
+    height: 65px;
+
+    margin-top: 15px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 0 20px;
+
+    border: 1px solid #35ff75;
+
+    background: rgba(3,12,7,.94);
+
+    box-shadow:
+        0 0 25px rgba(0,255,70,.12);
+}
+
+.brand strong {
+    display: block;
+
+    color: #6cff92;
+
+    letter-spacing: 2px;
+}
+
+.brand span {
+    display: block;
+
+    margin-top: 4px;
+
+    color: #548463;
+
+    font-size: 11px;
+}
+
+.stats {
+    display: flex;
+    gap: 25px;
+
+    align-items: center;
+
+    font-size: 11px;
+}
+
+.stats strong {
+    margin-left: 5px;
+}
+
+.health {
+    display: inline-block;
+
+    width: 100px;
+    height: 8px;
+
+    margin-left: 5px;
+
+    border: 1px solid #28643a;
+}
+
+#healthBar {
+    width: 100%;
+    height: 100%;
+
+    background: #45ff79;
+
+    transition: width .2s;
+}
+
+/* =========================
+   ARENA
+========================= */
+
+#arena {
+    position: relative;
+
+    width: min(1100px, 94vw);
+
+    flex: 1;
+
+    min-height: 250px;
+
+    overflow: hidden;
+
+    border-left: 1px solid #183c25;
+    border-right: 1px solid #183c25;
+
+    background:
+        radial-gradient(
+            circle at 50% 50%,
+            rgba(40,255,100,.05),
+            transparent 60%
+        );
+}
+
+/* =========================
+   COMPUTER
+========================= */
+
+#computer {
+    position: absolute;
+
+    right: 55px;
+    top: 50%;
+
+    width: 150px;
+
+    transform: translateY(-50%);
+
+    text-align: center;
+}
+
+.monitor {
+    width: 145px;
+    height: 100px;
+
+    padding: 6px;
+
+    border: 5px solid #4c5e51;
+    border-radius: 7px;
+
+    background: #061009;
+
+    box-shadow:
+        0 0 25px rgba(0,255,70,.08);
+}
+
+.monitor-screen {
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    border: 1px solid #1d6331;
+
+    color: #55ff83;
+
+    font-size: 10px;
+}
+
+.monitor-screen small {
+    margin-top: 5px;
+
+    color: #39734a;
+}
+
+.monitor-stand {
+    width: 35px;
+    height: 25px;
+
+    margin: auto;
+
+    background: #4c5e51;
+}
+
+.monitor-base {
+    width: 70px;
+    height: 8px;
+
+    margin: auto;
+
+    background: #4c5e51;
+}
+
+.computer-name {
+    margin-top: 8px;
+
+    color: #62ff8a;
+
+    font-size: 11px;
+}
+
+/* =========================
+   ENEMIES
+========================= */
+
+#enemies,
+#effects {
+    position: absolute;
+
+    inset: 0;
+
+    pointer-events: none;
+}
+
+.enemy {
+    position: absolute;
+
+    width: 42px;
+    height: 42px;
+
+    transform:
+        translate(-50%, -50%)
+        rotate(45deg);
+
+    border: 2px solid #ff4056;
+
+    background: #26070d;
+
+    box-shadow:
+        0 0 18px rgba(255,40,70,.25);
+
+    transition:
+        filter .08s;
+}
+
+.enemy::after {
+    content: "";
+
+    position: absolute;
+
+    width: 12px;
+    height: 12px;
+
+    left: 50%;
+    top: 50%;
+
+    transform: translate(-50%, -50%);
+
+    background: #ff4056;
+
+    box-shadow:
+        0 0 12px #ff4056;
+}
+
+.enemy.boss {
+    width: 70px;
+    height: 70px;
+
+    border-color: #ff9a3d;
+
+    background: #351407;
+
+    box-shadow:
+        0 0 35px rgba(255,120,30,.4);
+}
+
+.enemy.hit {
+    filter: brightness(3);
+}
+
+.enemy.dead {
+    animation: enemyDeath .25s forwards;
+}
+
+@keyframes enemyDeath {
+
+    to {
+        opacity: 0;
+
+        transform:
+            translate(-50%, -50%)
+            scale(2)
+            rotate(135deg);
+    }
+
+}
+
+/* =========================
+   EFFECTS
+========================= */
+
+.attack-ring {
+    position: absolute;
+
+    transform: translate(-50%, -50%);
+
+    width: 20px;
+    height: 20px;
+
+    border: 2px solid #6cff91;
+
+    border-radius: 50%;
+
+    animation: ring .35s forwards;
+}
+
+@keyframes ring {
+
+    to {
+        width: 190px;
+        height: 190px;
+
+        opacity: 0;
+    }
+
+}
+
+.attack-line {
+    position: absolute;
+
+    width: 7px;
+    height: 7px;
+
+    border-radius: 50%;
+
+    background: #7cff9b;
+
+    box-shadow:
+        0 0 15px #48ff79;
+}
+
+/* =========================
+   CONSOLE
+========================= */
+
+#console {
+    width: min(1100px, 94vw);
+    height: 220px;
+
+    margin-bottom: 18px;
+
+    border: 1px solid #35ff75;
+
+    background: rgba(1,6,3,.97);
+
+    box-shadow:
+        0 0 30px rgba(0,255,70,.14);
+
+    z-index: 10;
+}
+
+.console-header {
+    height: 30px;
+
+    display: flex;
+    align-items: center;
+
+    padding: 0 10px;
+
+    border-bottom: 1px solid #1d4d2c;
+
+    background: #0d1d13;
+
+    color: #6da17a;
+
+    font-size: 11px;
+}
+
+.lights {
+    display: flex;
+    gap: 5px;
+
+    margin-right: 12px;
+}
+
+.lights i {
+    width: 8px;
+    height: 8px;
+
+    border-radius: 50%;
+
+    background: #497456;
+}
+
+#clearLog {
+    margin-left: auto;
+
+    border: 0;
+
+    background: none;
+
+    color: #578365;
+
+    font-size: 18px;
+
+    cursor: pointer;
+}
+
+#terminalOutput {
+    height: 155px;
+
+    padding: 10px 13px;
+
+    overflow-y: auto;
+
+    font-size: 12px;
+
+    line-height: 1.55;
+}
+
+#terminalOutput::-webkit-scrollbar {
+    width: 5px;
+}
+
+#terminalOutput::-webkit-scrollbar-thumb {
+    background: #214b2c;
+}
+
+.system,
+.good {
+    color: #70ff91;
+}
+
+.error {
+    color: #ff6575;
+}
+
+.dim {
+    color: #54765e;
+}
+
+.command-line {
+    color: #caffd5;
+}
+
+#commandForm {
+    height: 34px;
+
+    display: flex;
+    align-items: center;
+
+    padding: 0 13px;
+
+    border-top: 1px solid #163b22;
+
+    color: #55ff81;
+}
+
+#commandInput {
+    flex: 1;
+
+    margin-left: 7px;
+
+    border: 0;
+    outline: 0;
+
+    background: transparent;
+
+    color: #d8ffe1;
+
+    font-size: 13px;
+}
+
+/* =========================
+   OVERLAY
+========================= */
+
+.overlay {
+    position: absolute;
+
+    inset: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: rgba(1,5,3,.92);
+
+    z-index: 50;
+}
+
+.hidden {
+    display: none !important;
+}
+
+.menu,
+.upgrade {
+    width: min(850px, 90vw);
+
+    padding: 35px;
+
+    text-align: center;
+
+    border: 1px solid #40ff7b;
+
+    background: #061009;
+
+    box-shadow:
+        0 0 60px rgba(0,255,70,.15);
+}
+
+.glitch {
+    color: #68ff90;
+
+    font-size: 35px;
+
+    letter-spacing: 8px;
+}
+
+.menu h1 {
+    margin: 0;
+
+    font-size: 55px;
+}
+
+.menu p {
+    color: #739c7e;
+
+    font-size: 13px;
+}
+
+.description {
+    line-height: 1.8;
+}
+
+.basic-command {
+    margin: 25px 0;
+
+    color: #648c70;
+
+    font-size: 12px;
+}
+
+.basic-command strong {
+    display: block;
+
+    margin-top: 7px;
+
+    color: #74ff98;
+
+    font-size: 18px;
+}
+
+.menu button {
+    padding: 13px 30px;
+
+    border: 1px solid #45ff7e;
+
+    background: #0a2513;
+
+    color: #aaffbd;
+
+    cursor: pointer;
+}
+
+.menu button:hover {
+    background: #164923;
+}
+
+.small-title {
+    color: #5cff85;
+
+    letter-spacing: 4px;
+
+    font-size: 11px;
+}
+
+.upgrade h2 {
+    margin: 8px 0;
+
+    font-size: 32px;
+}
+
+#upgradeInfo {
+    color: #63896e;
+
+    font-size: 12px;
+}
+
+#upgradeCards {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 15px;
+
+    margin-top: 25px;
+}
+
+.upgrade-card {
+    min-height: 175px;
+
+    padding: 20px;
+
+    text-align: left;
+
+    border: 1px solid #245b34;
+
+    background: #08170d;
+
+    cursor: pointer;
+
+    transition:
+        transform .15s,
+        border-color .15s;
+}
+
+.upgrade-card:hover {
+    transform: translateY(-5px);
+
+    border-color: #68ff91;
+}
+
+.card-type {
+    color: #4dc871;
+
+    font-size: 10px;
+}
+
+.upgrade-card h3 {
+    color: #baffc8;
+
+    font-size: 17px;
+}
+
+.upgrade-card p {
+    color: #75977e;
+
+    font-size: 11px;
+
+    line-height: 1.6;
+}
+
+.final-score {
+    margin: 25px 0;
+
+    color: #72957b;
+}
+
+.final-score strong {
+    color: #75ff98;
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:700px) {
+
+    #hud {
+        height: 58px;
+    }
+
+    .stats {
+        gap: 7px;
+    }
+
+    .health {
+        width: 55px;
+    }
+
+    #console {
+        height: 190px;
+    }
+
+    #terminalOutput {
+        height: 125px;
+    }
+
+    #upgradeCards {
+        grid-template-columns: 1fr;
+    }
+
+    .upgrade-card {
+        min-height: 90px;
+    }
+
+    .menu h1 {
+        font-size: 40px;
+    }
+
+}
